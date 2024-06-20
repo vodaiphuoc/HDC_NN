@@ -4,6 +4,9 @@ from abc import ABC, abstractmethod
 from copy import deepcopy
 
 class Base_HPV(ABC):
+    """
+    Base class for implementing operations of HPVs
+    """
     def __init__(self, 
                  D:int = 10000, 
                  counter_dtype = np.int16,
@@ -62,6 +65,9 @@ class Base_HPV(ABC):
         return np.where(self.get() == value)[0].shape[0]
 
 class Bipolar_HPV(Base_HPV):
+    """
+    Implement of bipolar hpv (contain only 1 and -1)
+    """
     def __init__(self, 
                  D:int = 10000, 
                  counter_dtype = np.int16,
@@ -133,3 +139,26 @@ class Bipolar_HPV(Base_HPV):
         1 for no update, -1 for updating
         """
         np.multiply(self.get(), mask.get(), out= self._hpv)
+
+
+class Binary_HPV(Base_HPV):
+    """
+    Implement of bipolar hpv (contain only 1 and 0)
+    """
+    def __init__(self, 
+                 D:int = 10000, 
+                 counter_dtype = np.int16,
+                 hpv_dtype = np.uint8,
+                 input_sequence: Union[List, np.ndarray] = None,
+                 name:str = None
+                 ) -> None:
+        """
+        Args:
+            - D(int): dimension of a hpv
+            - dtype : np.uint8
+        """
+        super().__init__(D= D, 
+                         counter_dtype = counter_dtype,
+                         hpv_dtype = hpv_dtype,
+                         input_sequence = input_sequence)
+        self.name = name if name is not None else None

@@ -2,7 +2,6 @@ import jdata as jd
 import numpy as np
 import json
 from src.models import Baseline_HDC
-# from src.hpvs import Bipolar_HPV
 
 if __name__ == "__main__":
 

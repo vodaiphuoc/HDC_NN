@@ -56,6 +56,9 @@ class Baseline_HDC(object):
         return Bipolar_HPV(input_sequence= list_mask)
 
     def retraining_by_mask(self, input_dataset_hpv: Dict[str, np.ndarray])-> None:
+        """
+        Main method for the paper
+        """
         # self.class_represent_hpvs = {class_ith: Bipolar_HPV(D = self.config["hpv_dim"]) for class_ith in range(self.num_classes)}
 
         for class_id, stacked_hpvs in input_dataset_hpv.items():
