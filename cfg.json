@@ -1,0 +1,10 @@
+{
+    "dataset": "cifar10",
+    "version": "ver_2",
+    "hpv_dim": 10000,
+    "num_classes": 10,
+    "topk_closet_classes": 3,
+    "topk_max_distance": 3,
+    "epochs": 20,
+    "batch_size": 256
+}
